@@ -36,6 +36,8 @@
     syntaxHighlighting.enable = true;
 
     initContent = ''
+      PROMPT='%{$fg_bold[red]%}➜ %{$fg_bold[green]%}%n@%m %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)%{$reset_color%}'
+
       export LC_ALL="en_US.UTF-8"
       export LC_CTYPE="en_US.UTF-8"
       export LANG="en_US.UTF-8"
