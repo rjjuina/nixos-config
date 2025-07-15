@@ -32,6 +32,9 @@
     # System monitoring
     neofetch
     lsof
+
+    # blockchain
+    bitcoin
   ];
 
   # Enable flakes system-wide

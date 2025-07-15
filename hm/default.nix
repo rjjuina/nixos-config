@@ -1,11 +1,10 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   home.username = "halston";
   home.homeDirectory = "/home/halston";
 
   home.stateVersion = "25.05";
-
 
   # User-specific packages
   home.packages = with pkgs; [
@@ -18,9 +17,7 @@
   # Let Home Manager install and manage itself
   programs.home-manager.enable = true;
 
-  imports = [
-    ./vim.nix
-  ];
+  imports = [ ./vim.nix ];
 
   programs.git = {
     enable = true;
@@ -44,6 +41,8 @@
       unset LSCOLORS
       export CLICOLOR=1
       export CLICOLOR_FORCE=1
+
+      export PATH="/usr/bin:$PATH"
     '';
 
     # Optional: configure zsh further
@@ -67,6 +66,45 @@
   };
 
   programs = {
+    atuin = {
+      enable = true;
+      enableZshIntegration = true;
+      flags = [ "--disable-up-arrow" ];
+      settings = {
+        auto_sync = true;
+        sync_frequency = "5m";
+        sync_address = "https://api.atuin.sh";
+      };
+    };
+
+    starship = {
+      enable = true;
+      settings = {
+        format = lib.concatStrings [
+          "$username"
+          "$hostname"
+          "$directory"
+          "$git_branch"
+          "$git_commit"
+          "$git_state"
+          "$git_metrics"
+          "$git_status"
+          "$nodejs"
+          "$golang"
+          "$haskell"
+          "$java"
+          "$python"
+          "$shell"
+          "$kubernetes"
+          "$aws"
+          "$line_break"
+          "$character"
+        ];
+        command_timeout = 5000;
+      };
+      enableZshIntegration = true;
+    };
+
     direnv = {
       enable = true;
       enableZshIntegration = true;
@@ -78,24 +116,15 @@
       enableZshIntegration = true;
     };
 
-    bat = {
-      enable = true;
-    };
+    bat = { enable = true; };
     eza = {
       enable = true;
       enableZshIntegration = true;
-      extraOptions = [
-        "--color=always"
-        "--group-directories-first"
-        "--header"
-      ];
+      extraOptions =
+        [ "--color=always" "--group-directories-first" "--header" ];
     };
-    man = {
-      enable = true;
-    };
-    readline = {
-      enable = true;
-    };
+    man = { enable = true; };
+    readline = { enable = true; };
     tealdeer = {
       enable = true;
       settings.updates.auto_update = true;
