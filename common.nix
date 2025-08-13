@@ -9,6 +9,7 @@
     lazygit
     
     # Development tools
+    python3  # Python 3 with pip included
     gnupg
     curl
     wget
