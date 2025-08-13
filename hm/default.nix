@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   home.username = "halston";
@@ -50,6 +55,7 @@
       lg = "lazygit";
       ll = "ls -l";
       la = "ls -la";
+      snr = "sudo nixos-rebuild switch --flake .#$(hostname) --impure";
     };
 
     history = {
@@ -60,7 +66,11 @@
     # Optional: oh-my-zsh integration
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "sudo" "fzf" ];
+      plugins = [
+        "git"
+        "sudo"
+        "fzf"
+      ];
       theme = "robbyrussell";
     };
   };
@@ -116,15 +126,24 @@
       enableZshIntegration = true;
     };
 
-    bat = { enable = true; };
+    bat = {
+      enable = true;
+    };
     eza = {
       enable = true;
       enableZshIntegration = true;
-      extraOptions =
-        [ "--color=always" "--group-directories-first" "--header" ];
+      extraOptions = [
+        "--color=always"
+        "--group-directories-first"
+        "--header"
+      ];
     };
-    man = { enable = true; };
-    readline = { enable = true; };
+    man = {
+      enable = true;
+    };
+    readline = {
+      enable = true;
+    };
     tealdeer = {
       enable = true;
       settings.updates.auto_update = true;
