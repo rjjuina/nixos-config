@@ -9,7 +9,11 @@
     lazygit
     
     # Development tools
-    python3  # Python 3 with pip included
+    (python3.withPackages (ps: with ps; [
+      pip
+      setuptools
+      wheel
+    ]))
     gnupg
     curl
     wget
