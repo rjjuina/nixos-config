@@ -13,7 +13,16 @@
       pip
       setuptools
       wheel
+      virtualenv
+      # Add more Python packages here as needed
+      # For packages not in nixpkgs, use virtual environments
     ]))
+    
+    # C/C++ libraries needed for Python packages
+    gcc
+    stdenv.cc.cc.lib
+    zlib
+    
     gnupg
     curl
     wget
@@ -73,6 +82,8 @@
 
   environment.variables = {
     EDITOR = "vim";
+    # Set library paths for Python packages
+    LD_LIBRARY_PATH = "${pkgs.stdenv.cc.cc.lib}/lib:${pkgs.zlib}/lib";
   };
 
   programs.zsh.enable = true;
