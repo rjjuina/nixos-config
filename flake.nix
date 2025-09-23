@@ -21,7 +21,7 @@
           system = "aarch64-linux";
           modules = [
             /etc/nixos/configuration.nix
-            ./common.nix
+            ./hosts/nixos/configuration.nix
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
@@ -34,7 +34,7 @@
           system = "aarch64-linux";
           modules = [
             /etc/nixos/configuration.nix
-            ./common.nix
+            ./hosts/rmini-nixos/configuration.nix
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
@@ -47,7 +47,7 @@
           system = "aarch64-linux";
           modules = [
             /etc/nixos/configuration.nix
-            ./common.nix
+            ./hosts/nixos-fusion/configuration.nix
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
