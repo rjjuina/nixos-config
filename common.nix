@@ -7,42 +7,44 @@
     vim
 
     lazygit
-    
+
     # Development tools
-    (python3.withPackages (ps: with ps; [
-      pip
-      setuptools
-      wheel
-      virtualenv
-      # Add more Python packages here as needed
-      # For packages not in nixpkgs, use virtual environments
-    ]))
-    
+    (python3.withPackages (
+      ps: with ps; [
+        pip
+        setuptools
+        wheel
+        virtualenv
+        # Add more Python packages here as needed
+        # For packages not in nixpkgs, use virtual environments
+      ]
+    ))
+
     # C/C++ libraries needed for Python packages
     gcc
     stdenv.cc.cc.lib
     zlib
-    
+
     gnupg
     curl
     wget
-    
+
     # System utilities
     htop
     tree
     unzip
     zip
     rsync
-    
+
     # Network tools
     dig
     nmap
     netcat
-    
+
     # File management
     fd
     ripgrep
-    
+
     # System monitoring
     neofetch
     lsof
@@ -52,8 +54,11 @@
   ];
 
   # Enable flakes system-wide
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+
   # Auto garbage collection
   nix.gc = {
     automatic = true;
@@ -64,7 +69,6 @@
   # Optimize nix store
   nix.settings.auto-optimise-store = true;
 
-  
   # Internationalization
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
@@ -78,7 +82,6 @@
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
   };
-
 
   environment.variables = {
     EDITOR = "vim";
