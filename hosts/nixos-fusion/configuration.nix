@@ -7,6 +7,10 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    nodejs_24
+    claude-code
   ];
+
+  nixpkgs.config.allowUnfree = true;
 }
 

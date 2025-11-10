@@ -11,6 +11,8 @@
       ]
     ))
 
+    nodejs_24
+
     gcc
     stdenv.cc.cc.lib
     zlib
