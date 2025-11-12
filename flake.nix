@@ -7,6 +7,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    vscode-server.url = "github:nix-community/nixos-vscode-server";
   };
 
   outputs =
@@ -14,6 +15,7 @@
       self,
       nixpkgs,
       home-manager,
+      vscode-server,
     }:
     {
       nixosConfigurations = {
@@ -54,6 +56,10 @@
               home-manager.useUserPackages = true;
               home-manager.users.halston = import ./hm/default.nix;
             }
+            vscode-server.nixosModules.default
+        ({ config, pkgs, ... }: {
+          services.vscode-server.enable = true;
+        })
           ];
         };
       };

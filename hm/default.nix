@@ -40,7 +40,7 @@
     initContent = ''
       # Disable oh-my-zsh's default virtualenv prompt since we're using Starship
       export VIRTUAL_ENV_DISABLE_PROMPT=1
-      
+
       export LC_ALL="en_US.UTF-8"
       export LC_CTYPE="en_US.UTF-8"
       export LANG="en_US.UTF-8"
@@ -57,6 +57,7 @@
       ll = "ls -l";
       la = "ls -la";
       snr = "sudo nixos-rebuild switch --flake .#$(hostname) --impure";
+      v = "nvim";
     };
 
     history = {
@@ -95,7 +96,7 @@
           "$username"
           "$hostname"
           "$directory"
-          "$python"  # Show Python/venv info before git
+          "$python" # Show Python/venv info before git
           "$git_branch"
           "$git_commit"
           "$git_state"
@@ -111,18 +112,33 @@
           "$line_break"
           "$character"
         ];
-        
+
         python = {
           symbol = "🐍 ";
           format = "via [$symbol$pyenv_prefix($version )(\\($virtualenv\\) )]($style)";
           style = "yellow bold";
           pyenv_version_name = false;
-          python_binary = ["python" "python3"];
-          detect_extensions = ["py"];
-          detect_files = [".python-version" "Pipfile" "pyproject.toml" "requirements.txt" "setup.py" "tox.ini"];
-          detect_folders = ["__pycache__" ".venv" "venv" ".virtualenv"];
+          python_binary = [
+            "python"
+            "python3"
+          ];
+          detect_extensions = [ "py" ];
+          detect_files = [
+            ".python-version"
+            "Pipfile"
+            "pyproject.toml"
+            "requirements.txt"
+            "setup.py"
+            "tox.ini"
+          ];
+          detect_folders = [
+            "__pycache__"
+            ".venv"
+            "venv"
+            ".virtualenv"
+          ];
         };
-        
+
         command_timeout = 5000;
       };
       enableZshIntegration = true;

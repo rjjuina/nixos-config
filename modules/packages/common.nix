@@ -10,5 +10,8 @@
     gnupg
     lazygit
     ripgrep
+    nixfmt-rfc-style
+
+    gcc
   ];
 }
