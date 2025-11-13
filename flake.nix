@@ -57,9 +57,12 @@
               home-manager.users.halston = import ./hm/default.nix;
             }
             vscode-server.nixosModules.default
-        ({ config, pkgs, ... }: {
-          services.vscode-server.enable = true;
-        })
+            (
+              { config, pkgs, ... }:
+              {
+                services.vscode-server.enable = true;
+              }
+            )
           ];
         };
       };
