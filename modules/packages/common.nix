@@ -13,5 +13,13 @@
     nixfmt-rfc-style
 
     gcc
+
+    lsof
+    bind
+    tcpdump
+    traceroute
+    mtr
+    netcat-gnu
+    nmap
   ];
 }
