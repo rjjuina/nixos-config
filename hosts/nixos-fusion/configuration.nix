@@ -44,6 +44,8 @@
     pkg-config
     gcc
     rustup
+    uv
+    unzip
   ];
 
   nixpkgs.config.allowUnfree = true;
