@@ -48,7 +48,7 @@
       export CLICOLOR=1
       export CLICOLOR_FORCE=1
 
-      export PATH="/usr/bin:$HOME/.cargo/bin:$PATH"
+      export PATH="/run/current-system/sw/bin:/usr/bin:$HOME/.cargo/bin:$PATH"
     '';
 
     # Optional: configure zsh further

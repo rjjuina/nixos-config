@@ -43,9 +43,9 @@
     libadwaita
     pkg-config
     gcc
-    rustup
     uv
     unzip
+    python314
   ];
 
   nixpkgs.config.allowUnfree = true;
